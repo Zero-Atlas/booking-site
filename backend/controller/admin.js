@@ -9,7 +9,7 @@ exports.useAdminAuth = (req, res, next) => {
     const loggedAdmin = users.filter(
       (u) => u._id.toString() === adminId.toString()
     )[0];
-    // console.log(loggedAdmin);
+
     if (loggedAdmin) {
       return next();
     } else {
@@ -69,7 +69,6 @@ exports.getTransaction = (req, res, next) => {
     .then((transList) => {
       const sendTransactionList = transList
         .sort((a, b) => {
-          // console.log(b.dateStart.getTime() , a.dateStart.getTime())
           return b.createdAt.getTime() - a.createdAt.getTime();
         })
         .slice((page - 1) * 8, page * 8)

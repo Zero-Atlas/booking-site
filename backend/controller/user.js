@@ -7,12 +7,10 @@ exports.postLogin = (req, res, next) => {
   User.findOne({ username: username })
     .then((user) => {
       if (!user) {
-        const message = "Your username or password is not correct!";
-        return res.status(401).send(JSON.stringify(message));
+        return res.status(401).send(JSON.stringify("Your username or password is not correct!"));
       }
       if (user.password !== password) {
-        const message = "Your username or password is not correct!";
-        return res.status(401).send(JSON.stringify(message));
+        return res.status(401).send(JSON.stringify("Your username or password is not correct!"));
       }
 
       res.send(JSON.stringify({ id: user._id }));

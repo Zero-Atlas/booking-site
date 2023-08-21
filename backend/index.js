@@ -15,7 +15,7 @@ const app = express();
 app.use(
   cors({
     origin: ['https://booking-site-admin.vercel.app', 'https://booking-site-silk.vercel.app'],
-    methods: ["POST", "GET", "OPTION", "DELETE"],
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
   })
 );
 app.set("trust proxy", 1);

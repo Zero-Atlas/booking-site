@@ -1,6 +1,7 @@
 import { Form, redirect } from "react-router-dom";
 import classes from "./Login.module.css";
 import { useState } from "react";
+import process from "process";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -56,7 +57,7 @@ export async function action({ request }) {
   const password = formData.get("password");
   const sendData = { username: username, password: password };
 
-  const response = await fetch(`http://localhost:5000/admin/login`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/admin/login`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(sendData),

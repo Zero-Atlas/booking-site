@@ -6,6 +6,7 @@ import Location from "./Content/Location";
 import { json, redirect, useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
+import process from "process";
 
 const Detail = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);
@@ -42,7 +43,7 @@ export default Detail;
 
 export async function loader({ params }) {
   const hotelId = params.hotelId;
-  const response = await fetch(`http://localhost:5000/hotel/${hotelId}`);
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/hotel/${hotelId}`);
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -64,7 +65,7 @@ export async function action({ request,params }) {
 
   console.log(inputData);
 
-  const response = await fetch("http://localhost:5000/user/booked", {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/user/booked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData),

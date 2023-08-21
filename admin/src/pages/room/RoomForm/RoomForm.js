@@ -4,6 +4,7 @@ import {
   useLoaderData,
   useRouteLoaderData,
 } from "react-router-dom";
+import process from "process";
 import classes from "./RoomForm.module.css";
 import Input from "../../../util/Input";
 
@@ -121,14 +122,17 @@ export async function action({ request }) {
 
   let response;
   if (sendData.edit === "false") {
-    response = await fetch(`http://localhost:5000/admin/${adminId}/room/new`, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(sendData),
-    });
+    response = await fetch(
+      `${process.env.REACT_APP_SERVER}/admin/${adminId}/room/new`,
+      {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(sendData),
+      }
+    );
   } else {
     response = await fetch(
-      `http://localhost:5000/admin/${adminId}/room/update`,
+      `${process.env.REACT_APP_SERVER}/admin/${adminId}/room/update`,
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -151,7 +155,9 @@ export async function loader({ request }) {
 
   if (edit) {
     const roomId = url.searchParams.get("roomId");
-    const response = await fetch(`http://localhost:5000/room/${roomId}`);
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER}/room/${roomId}`
+    );
     if (!response.ok) {
       const error = await response.json();
       console.log(response.status, error.message);

@@ -2,6 +2,8 @@ import { Outlet, json } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Register from "../Register/Register";
+import process from "process";
+
 export default function RootLayout() {
   return (
     <>
@@ -15,7 +17,7 @@ export default function RootLayout() {
 
 export async function loader() {
   const userId = JSON.parse(localStorage.getItem("loginUser"));
-  const response = await fetch("http://localhost:5000/user", {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/user`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userId: userId }),

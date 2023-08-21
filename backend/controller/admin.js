@@ -11,10 +11,8 @@ exports.useAdminAuth = (req, res, next) => {
     )[0];
     // console.log(loggedAdmin);
     if (loggedAdmin) {
-      console.log('NEXT');
       return next();
     } else {
-      console.log('ERROR');
       return res.status(401).send({ message: "Admin not logged in!" });
     }
   });
@@ -27,7 +25,6 @@ exports.postAdmin = (req, res, next) => {
   }
   User.findById(adminId)
     .then((user) => {
-      console.log("user: ", user);
       if (!user) {
         return res.send(JSON.stringify({ message: "Not logged in" }));
       }
@@ -49,16 +46,13 @@ exports.postLogin = (req, res, next) => {
   User.findOne({ username: username })
     .then((user) => {
       if (!user) {
-        const message = "Your username or password is not correct!";
-        return res.status(401).send(JSON.stringify(message));
+        return res.status(401).send(JSON.stringify("Your username or password is not correct!"));
       }
       if (user.password !== password) {
-        const message = "Your username or password is not correct!";
-        return res.status(401).send(JSON.stringify(message));
+        return res.status(401).send(JSON.stringify("Your username or password is not correct!"));
       }
       if (!user.isAdmin) {
-        const message = "This account is not an admin!";
-        return res.status(401).send(JSON.stringify(message));
+        return res.status(401).send(JSON.stringify("This account is not an admin!"));
       }
 
       res.send(JSON.stringify({ id: user._id }));

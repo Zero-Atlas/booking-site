@@ -2,6 +2,7 @@ import { defer, useRouteLoaderData, json, Await } from "react-router-dom";
 import City from "./City";
 import Hotels from "./Hotels";
 import StaysType from "./StaysType";
+import process from "process";
 import { Suspense } from "react";
 
 const Content = function () {
@@ -31,7 +32,7 @@ export const loader = async () => {
 };
 
 async function fetchCity() {
-  const response = await fetch("http://localhost:5000/home/city");
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/city`);
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -39,7 +40,7 @@ async function fetchCity() {
   return data;
 }
 async function fetchType() {
-  const response = await fetch("http://localhost:5000/home/type");
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/type`);
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -47,7 +48,7 @@ async function fetchType() {
   return data;
 }
 async function fetchTopRating() {
-  const response = await fetch("http://localhost:5000/home/top-rating");
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/top-rating`);
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }

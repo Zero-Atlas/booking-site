@@ -1,6 +1,7 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import classes from "./HotelForm.module.css";
 import Input from "../../../util/Input";
+import process from "process";
 import { useState } from "react";
 
 export default function HotelForm() {
@@ -198,14 +199,14 @@ export async function action({ request }) {
 
   let response;
   if (sendData.edit === "false") {
-    response = await fetch(`http://localhost:5000/admin/${adminId}/hotel/new`, {
+    response = await fetch(`${process.env.REACT_APP_SERVER}/admin/${adminId}/hotel/new`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sendData),
     });
   } else {
     response = await fetch(
-      `http://localhost:5000/admin/${adminId}/hotel/update`,
+      `${process.env.REACT_APP_SERVER}/admin/${adminId}/hotel/update`,
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -228,7 +229,7 @@ export async function loader({ request }) {
 
   if (edit) {
     const hotelId = url.searchParams.get("hotelId");
-    const response = await fetch(`http://localhost:5000/hotel/${hotelId}`);
+    const response = await fetch(`${process.env.REACT_APP_SERVER}/hotel/${hotelId}`);
     if (!response.ok) {
       const error = await response.json();
       console.log(response.status, error.message);

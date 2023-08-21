@@ -1,4 +1,5 @@
 import { Link, redirect, useLoaderData, useNavigate } from "react-router-dom";
+import process from 'process'
 import classes from "./Room.module.css";
 
 export default function Room() {
@@ -9,7 +10,7 @@ export default function Room() {
     const adminId = JSON.parse(localStorage.getItem("loginAdmin"));
     if (window.confirm("Are you sure to delete this hotel?")) {
       const response = await fetch(
-        `http://localhost:5000/admin/${adminId}/delete-room/${roomId}`,
+        `${process.env.REACT_APP_SERVER}/${adminId}/delete-room/${roomId}`,
         { method: "delete" }
       );
       const data = await response.json();
@@ -102,7 +103,7 @@ export default function Room() {
 
 export async function loader() {
   const adminId = JSON.parse(localStorage.getItem("loginAdmin"));
-  const response = await fetch(`http://localhost:5000/admin/${adminId}/room`);
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/admin/${adminId}/room`);
   if (!response.ok) {
     const error = await response.json();
     console.log(response.status, error.message);

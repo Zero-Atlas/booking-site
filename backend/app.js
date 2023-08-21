@@ -1,31 +1,38 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { default: mongoose } = require("mongoose");
-const cors=require('cors')
+const cors = require("cors");
 
-const userRouter=require('./router/user')
-const adminRouter=require('./router/admin')
-const homeRouter=require('./router/home')
-const hotelRouter=require('./router/hotel')
-const searchRouter=require('./router/search')
+const userRouter = require("./router/user");
+const adminRouter = require("./router/admin");
+const homeRouter = require("./router/home");
+const hotelRouter = require("./router/hotel");
+const searchRouter = require("./router/search");
+
+const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@movie-site.kpkcv1h.mongodb.net/${process.env.MONGO_DATABASE}`;
 
 const app = express();
-app.use(cors())
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
+app.use(
+  cors({
+    origin: [process.env.CLIENT_URL, process.env.ADMIN_URL],
+    methods: ["POST", "GET", "OPTION", "DELETE"],
+  })
+);
+app.set("trust proxy", 1);
 
-app.use(userRouter)
-app.use(adminRouter)
-app.use(homeRouter)
-app.use(searchRouter)
-app.use(hotelRouter)
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+app.use(userRouter);
+app.use(adminRouter);
+app.use(homeRouter);
+app.use(searchRouter);
+app.use(hotelRouter);
 
 mongoose
-  .connect(
-    "mongodb+srv://anhdfx20137:devildarkness4@cluster0.x0tghbp.mongodb.net/booking?retryWrites=true&w=majority"
-  )
+  .connect(MONGODB_URI)
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT || 5000);
   })
   .catch((err) => {
     console.log(err);

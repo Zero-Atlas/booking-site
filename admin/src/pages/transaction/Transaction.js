@@ -1,11 +1,11 @@
 import { json, useLoaderData, useSearchParams } from "react-router-dom";
-
+import process from "process";
 import classes from "./Transaction.module.css";
 
 export default function Transaction(props) {
   let loaderData = useLoaderData();
-  if(!loaderData){
-    loaderData=props.data
+  if (!loaderData) {
+    loaderData = props.data;
   }
   let data, maxPage;
   if (loaderData) {
@@ -30,7 +30,7 @@ export default function Transaction(props) {
   return (
     <>
       <div className={classes.history}>
-        <h2>{props.title?props.title:'Transaction List'}</h2>
+        <h2>{props.title ? props.title : "Transaction List"}</h2>
         <div className={classes["table-wp"]}>
           <table className={classes.table}>
             <thead>
@@ -117,7 +117,7 @@ export async function loader({ request }) {
   const url = new URL(request.url);
   const page = url.searchParams.get("page") || 1;
   const response = await fetch(
-    `http://localhost:5000/admin/${adminId}/transaction?page=${page}`
+    `${process.env.REACT_APP_SERVER}/admin/${adminId}/transaction?page=${page}`
   );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });

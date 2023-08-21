@@ -1,0 +1,59 @@
+.card{
+  padding: 1rem;
+  border-radius: 9px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+.form{
+  padding: 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+.form-control{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form-control input,.form-control select{
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem;
+}
+.form-control input:focus,.form-control select:focus{
+  border: 1px solid #333;
+}
+
+.last-row{
+  display: flex;
+  justify-content: space-between;
+  grid-column: 1/-1;
+  align-items: flex-end;
+}
+.hotel select{
+  border: #333 solid 1px;
+  width: 30rem;
+  border-radius: 4px;
+}
+
+.rooms{
+  grid-column: 1/-1;
+}
+.rooms select{
+  border: #333 solid 1px;
+}
+
+.btn{
+  background-color: #008080;
+  color: #fff;
+  border: none;
+  padding: 1rem 3.2rem;
+  width: 15rem;
+}
+.btn:hover{
+  cursor: pointer;
+  box-shadow: 2px 2px 5px 2px #888;
+}
+.btn:active{
+  box-shadow: none;
+}

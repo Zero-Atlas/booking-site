@@ -1,0 +1,19 @@
+header {
+  background-color: #003580;
+  color: #fff;
+}
+header h1 {
+  font-size: 3.6rem;
+  padding-top: 3rem;
+  padding-bottom: 1.6rem;
+}
+header p {
+  padding-bottom: 1.4rem;
+}
+.cta-btn {
+  background-color: #0071c2;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.4rem;
+}

@@ -1,0 +1,12 @@
+.detail-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.detail-photos .detail-image {
+  width: 100%;
+}
+.detail-photos .detail-image img {
+  width: 100%;
+}

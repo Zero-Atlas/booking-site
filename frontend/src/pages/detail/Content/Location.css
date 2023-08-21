@@ -1,0 +1,25 @@
+#detail .location {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6rem;
+}
+#detail .location-wp {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+#detail .location-wp .name {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+#detail .location-wp .address {
+  font-size: 1.3rem;
+}
+#detail .location-wp .distance {
+  color: #3d8bd0;
+  font-weight: 600;
+}
+#detail .location-wp .price {
+  color: #008009;
+  font-weight: 600;
+}

@@ -1,0 +1,10 @@
+nav {
+  background-color: #003580;
+  color: #fff;
+}
+.main-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 2rem;
+}

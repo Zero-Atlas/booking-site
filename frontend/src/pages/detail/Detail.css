@@ -1,0 +1,12 @@
+.info-wp {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  margin-top: 4rem;
+  gap: 2rem;
+}
+#detail .cta-btn {
+  align-self: flex-start;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  font-weight: 600;
+}

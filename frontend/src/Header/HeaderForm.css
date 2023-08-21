@@ -1,0 +1,53 @@
+header .form-search {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.3fr;
+  background-color: #fff;
+  padding: 1rem 4rem;
+  border-radius: 5px;
+  border: 4px solid #febf10;
+  margin-top: 7rem;
+  transform: translateY(50%);
+  margin-bottom: 4rem;
+  align-items: center;
+  color: #d3d3d3;
+}
+header .form-search i {
+  margin-right: 1rem;
+}
+header .form-search input {
+  display: inline-block;
+  border: none;
+}
+header .form-search .form-search-group {
+  align-items: center;
+  height: 100%;
+  display: flex;
+}
+header .form-search .form-search-group input {
+  height: 100%;
+}
+
+/* location */
+header .location{
+  background-color: #fff;
+  outline: none;
+  border: none;
+}
+
+/* date group */
+header .form-search-group.date-group {
+  position: relative;
+}
+
+/* room size */
+header .room-size input {
+  width: 30%;
+  margin-right: 1rem;
+}
+header .form-search-btn {
+  margin-left: auto;
+  background-color: #0071c2;
+  color: #fff;
+  padding: 1rem 1.4rem;
+  border: none;
+}

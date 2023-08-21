@@ -1,0 +1,19 @@
+#register {
+  background-color: #003580;
+  color: #fff;
+}
+#register .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+  margin-top: 4rem;
+}
+#register h1 {
+  margin-bottom: 2.4rem;
+  font-size: 3.2rem;
+}
+#register p {
+  margin-bottom: 1.6rem;
+}

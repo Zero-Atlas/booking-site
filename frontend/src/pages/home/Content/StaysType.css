@@ -1,0 +1,14 @@
+.types {
+  display: flex;
+  justify-content: space-around;
+}
+.type-container {
+  width: 18%;
+  border-radius: 9px;
+  overflow: hidden;
+  color: #544846;
+}
+.type-img {
+  height: 14rem;
+  background-size: cover;
+}

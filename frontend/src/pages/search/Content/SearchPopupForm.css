@@ -1,0 +1,35 @@
+#search .form-group > label {
+  color: #000;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+}
+#search .form-group > input,
+#search .form-group > select {
+  color: #000;
+  border: none;
+  padding: 1rem;
+  width: 100%;
+}
+#search .form-group {
+  margin-bottom: 1rem;
+}
+/* option form style */
+#search .option-form-group {
+  width: 100%;
+  display: flex;
+  margin-bottom: 1rem;
+}
+.option-form-group > label {
+  margin-right: auto;
+}
+#search .option-form-group > input {
+  width: 20%;
+}
+/* submit btn style */
+#search .btn-popup-submit {
+  border: none;
+  color: #fff;
+  width: 100%;
+  background-color: #0071c2;
+  padding: 1.2rem;
+}

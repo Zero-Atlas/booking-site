@@ -1,0 +1,23 @@
+.wp-logo-user {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+  align-items: center;
+}
+.wp-logo-user .logo{
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.8rem;
+}
+.user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.user .btn {
+  color: #003580;
+  font-weight: 500;
+  background-color: #efefef;
+  text-decoration: none;
+}

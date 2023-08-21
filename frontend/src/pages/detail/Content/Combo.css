@@ -1,0 +1,22 @@
+.detail-combo {
+  background-color: #ebf3ff;
+  padding: 2rem 1.5rem;
+}
+.detail-combo .title {
+  color: #5b5755;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+.detail-combo .price {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-top: 2.4rem;
+  margin-bottom: 2rem;
+}
+.detail-combo .price span {
+  font-weight: 300;
+}
+.detail-combo .cta-btn {
+  width: 100%;
+}

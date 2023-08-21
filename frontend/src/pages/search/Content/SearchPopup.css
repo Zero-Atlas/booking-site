@@ -1,0 +1,8 @@
+.search-popup {
+  flex-basis: 25%;
+  background-color: #febb02;
+  border-radius: 15px;
+  padding: 1rem;
+  color: #585850;
+  align-self: start;
+}

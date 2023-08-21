@@ -2,7 +2,6 @@ import { defer, useRouteLoaderData, json, Await } from "react-router-dom";
 import City from "./City";
 import Hotels from "./Hotels";
 import StaysType from "./StaysType";
-import process from "process";
 import { Suspense } from "react";
 
 const Content = function () {

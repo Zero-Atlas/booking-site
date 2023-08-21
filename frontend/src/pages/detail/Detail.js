@@ -6,7 +6,6 @@ import Location from "./Content/Location";
 import { json, redirect, useLoaderData } from "react-router-dom";
 import { useState } from "react";
 import BookingForm from "./BookingForm";
-import process from "process";
 
 const Detail = () => {
   const [showBookingForm, setShowBookingForm] = useState(false);

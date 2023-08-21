@@ -2,7 +2,6 @@ import { Outlet, json } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Footer from "../Footer/Footer";
 import Register from "../Register/Register";
-import process from "process";
 
 export default function RootLayout() {
   return (

@@ -12,12 +12,7 @@ const searchRouter = require("./router/search");
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@movie-site.kpkcv1h.mongodb.net/${process.env.MONGO_DATABASE}`;
 
 const app = express();
-app.use(
-  cors({
-    origin: [process.env.CLIENT_URL, process.env.ADMIN_URL],
-    methods: ["POST", "GET", "OPTION", "DELETE"],
-  })
-);
+app.use(cors());
 app.set("trust proxy", 1);
 
 app.use(bodyParser.urlencoded({ extended: false }));

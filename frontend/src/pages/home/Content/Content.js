@@ -31,7 +31,10 @@ export const loader = async () => {
 };
 
 async function fetchCity() {
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/city`);
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/city`, {
+    method: "GET",
+    credentials: "include",
+  });
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -39,7 +42,10 @@ async function fetchCity() {
   return data;
 }
 async function fetchType() {
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/type`);
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/type`, {
+    method: "GET",
+    credentials: "include",
+  });
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -47,7 +53,13 @@ async function fetchType() {
   return data;
 }
 async function fetchTopRating() {
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/home/top-rating`);
+  const response = await fetch(
+    `${process.env.REACT_APP_SERVER}/home/top-rating`,
+    {
+      method: "GET",
+      credentials: "include",
+    }
+  );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }

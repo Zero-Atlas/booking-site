@@ -60,11 +60,15 @@ export async function action({ request }) {
   const password = formData.get("password");
   const sendData = { username: username, password: password };
 
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/user/${action}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(sendData),
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_SERVER}/user/${action}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(sendData),
+      credentials: "include",
+    }
+  );
   const data = await response.json();
   if (response.status === 401) {
     alert(data);
@@ -73,8 +77,8 @@ export async function action({ request }) {
   if (action === "login") {
     const loginUser = data.id;
     localStorage.setItem("loginUser", JSON.stringify(loginUser));
-  }else{
-    return redirect('/login?action=login')
+  } else {
+    return redirect("/login?action=login");
   }
   return redirect("/");
 }

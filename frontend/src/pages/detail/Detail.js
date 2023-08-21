@@ -42,7 +42,9 @@ export default Detail;
 
 export async function loader({ params }) {
   const hotelId = params.hotelId;
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/hotel/${hotelId}`);
+  const response = await fetch(
+    `${process.env.REACT_APP_SERVER}/hotel/${hotelId}`
+  );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
   }
@@ -50,7 +52,7 @@ export async function loader({ params }) {
   return data;
 }
 
-export async function action({ request,params }) {
+export async function action({ request, params }) {
   const receive = await request.formData();
   // data receive from form
   const inputData = {
@@ -62,12 +64,11 @@ export async function action({ request,params }) {
     payment: receive.get("payment"),
   };
 
-  console.log(inputData);
-
   const response = await fetch(`${process.env.REACT_APP_SERVER}/user/booked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData),
+    credentials: "include",
   });
 
   if (!response.ok) {

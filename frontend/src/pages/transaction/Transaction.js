@@ -29,9 +29,21 @@ export default function Transaction() {
                 <td>{trans.date}</td>
                 <td>${trans.price}</td>
                 <td>{trans.payment}</td>
-                {trans.status==='Booked'&&<td className={classes.booked}><span>{trans.status}</span></td>}
-                {trans.status==='Checkin'&&<td className={classes.checkin}><span>{trans.status}</span></td>}
-                {trans.status==='Checkout'&&<td className={classes.checkout}><span>{trans.status}</span></td>}
+                {trans.status === "Booked" && (
+                  <td className={classes.booked}>
+                    <span>{trans.status}</span>
+                  </td>
+                )}
+                {trans.status === "Checkin" && (
+                  <td className={classes.checkin}>
+                    <span>{trans.status}</span>
+                  </td>
+                )}
+                {trans.status === "Checkout" && (
+                  <td className={classes.checkout}>
+                    <span>{trans.status}</span>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -47,7 +59,11 @@ export async function loader() {
     return redirect("/login");
   }
   const response = await fetch(
-    `http://localhost:5000/transaction/${loginUserId}`
+    `${process.env.REACT_APP_SERVER}/transaction/${loginUserId}`,
+    {
+      method: "GET",
+      credentials: "include",
+    }
   );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });

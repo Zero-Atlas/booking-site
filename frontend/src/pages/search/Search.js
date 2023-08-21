@@ -30,10 +30,11 @@ export async function action({ request }) {
     rooms: Number(receive.get("rooms")),
   };
 
-  const response = await fetch("http://localhost:5000/search", {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}/search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData),
+    credentials: "include",
   });
 
   if (!response.ok) {

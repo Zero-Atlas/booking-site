@@ -20,6 +20,7 @@ export async function loader() {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userId: userId }),
+    credentials:'include'
   });
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });

@@ -1,7 +1,6 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import classes from "./HotelForm.module.css";
 import Input from "../../../util/Input";
-import process from "process";
 import { useState } from "react";
 
 export default function HotelForm() {

@@ -1,5 +1,4 @@
 import { Link, redirect, useLoaderData, useNavigate } from "react-router-dom";
-import process from 'process'
 import classes from "./Room.module.css";
 
 export default function Room() {

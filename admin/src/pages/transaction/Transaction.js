@@ -1,5 +1,4 @@
 import { json, useLoaderData, useSearchParams } from "react-router-dom";
-import process from "process";
 import classes from "./Transaction.module.css";
 
 export default function Transaction(props) {

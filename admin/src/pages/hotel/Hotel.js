@@ -1,6 +1,5 @@
 import { Link, useLoaderData, useNavigate, redirect } from "react-router-dom";
 import classes from "./Hotel.module.css";
-import process from "process";
 
 export default function Hotel() {
   const data = useLoaderData();

@@ -12,7 +12,12 @@ const searchRouter = require("./router/search");
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@movie-site.kpkcv1h.mongodb.net/${process.env.MONGO_DATABASE}`;
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ['https://booking-site-admin.vercel.app', 'https://booking-site-silk.vercel.app'],
+    methods: ["POST", "GET", "OPTION", "DELETE"],
+  })
+);
 app.set("trust proxy", 1);
 
 app.use(bodyParser.urlencoded({ extended: false }));

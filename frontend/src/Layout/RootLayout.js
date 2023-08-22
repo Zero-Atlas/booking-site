@@ -23,7 +23,8 @@ export async function loader() {
     credentials:'include'
   });
   if (!response.ok) {
-    throw json({ message: "fail to fetch", status: 500 });
+    console.error("Fail to fetch",500);
+    return null
   }
   const data = await response.json();
   return data;

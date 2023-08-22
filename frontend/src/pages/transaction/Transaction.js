@@ -59,11 +59,7 @@ export async function loader() {
     return redirect("/login");
   }
   const response = await fetch(
-    `${process.env.REACT_APP_SERVER}/transaction/${loginUserId}`,
-    {
-      method: "GET",
-      credentials: "include",
-    }
+    `${process.env.REACT_APP_SERVER}/transaction/${loginUserId}`
   );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });

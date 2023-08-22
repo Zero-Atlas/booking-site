@@ -14,9 +14,8 @@ const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO
 const app = express();
 app.use(
   cors({
-    origin: ['https://booking-site-admin.vercel.app', 'https://booking-site-silk.vercel.app'],
+    origin: ['https://booking-site-admin.vercel.app/', 'https://booking-site-silk.vercel.app/'],
     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
-    credentials:true
   })
 );
 

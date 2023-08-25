@@ -12,34 +12,25 @@ const searchRouter = require("./router/search");
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@movie-site.kpkcv1h.mongodb.net/${process.env.MONGO_DATABASE}`;
 
 const app = express();
-// app.use(
-//   cors({
-//     origin: ['https://booking-site-admin.vercel.app/', 'https://booking-site-silk.vercel.app/'],
-//     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
-//     allowedHeaders: '*'
-//   })
-// );
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "https://booking-site-admin.vercel.app, https://booking-site-silk.vercel.app");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header(
-    "Access-Control-Allow-Methods",
-    "POST, PUT, GET, OPTIONS, HEAD, DELETE"
-  );
-  next();
-});
+app.options(
+  cors({
+    origin: [
+      "https://booking-site-admin.vercel.app/",
+      "https://booking-site-silk.vercel.app/",
+    ],
+    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
+    allowedHeaders: "*",
+  })
+);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(userRouter);
-app.use(adminRouter);
-app.use(homeRouter);
-app.use(searchRouter);
-app.use(hotelRouter);
+app.use("/user", userRouter);
+app.use("/admin", adminRouter);
+app.use("/home", homeRouter);
+app.use("/search", searchRouter);
+app.use("/hotel", hotelRouter);
 
 mongoose
   .connect(MONGODB_URI)

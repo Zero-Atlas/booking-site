@@ -5,29 +5,29 @@ const hotelController = require("../controller/hotel");
 
 const router = express.Router();
 
-router.post("/admin/login", adminController.postLogin);
+router.post("/login", adminController.postLogin);
 
-router.post("/admin", adminController.postAdmin);
+router.post("/", adminController.postAdmin);
 
 // check admin account is login
-router.use("/admin/:adminId", adminController.useAdminAuth);
+router.use("/:adminId", adminController.useAdminAuth);
 
-router.get("/admin/:adminId/transaction", adminController.getTransaction);
+router.get("/:adminId/transaction", adminController.getTransaction);
 
-router.post("/admin/:adminId/hotel/new", hotelController.postHotel);
+router.post("/:adminId/hotel/new", hotelController.postHotel);
 
-router.post("/admin/:adminId/hotel/update", hotelController.postUpdateHotel);
+router.post("/:adminId/hotel/update", hotelController.postUpdateHotel);
 
-router.get("/admin/:adminId/hotel", hotelController.getHotels);
+router.get("/:adminId/hotel", hotelController.getHotels);
 
-router.delete("/admin/:adminId/delete-hotel/:hotelId", hotelController.deleteHotel);
+router.delete("/:adminId/delete-hotel/:hotelId", hotelController.deleteHotel);
 
-router.post("/admin/:adminId/room/new", hotelController.postRoom);
+router.post("/:adminId/room/new", hotelController.postRoom);
 
-router.post("/admin/:adminId/room/update", hotelController.postUpdateRoom);
+router.post("/:adminId/room/update", hotelController.postUpdateRoom);
 
-router.get("/admin/:adminId/room", hotelController.getRooms);
+router.get("/:adminId/room", hotelController.getRooms);
 
-router.delete("/admin/:adminId/delete-room/:roomId", hotelController.deleteRoom);
+router.delete("/:adminId/delete-room/:roomId", hotelController.deleteRoom);
 
 module.exports = router;

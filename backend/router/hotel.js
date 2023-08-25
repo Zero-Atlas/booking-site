@@ -4,7 +4,7 @@ const hotelController=require('../controller/hotel')
 
 const router = express.Router();
 
-router.get('/hotel/:hotelId',hotelController.getHotel)
+router.get('/:hotelId',hotelController.getHotel)
 
 router.get("/room/:roomId", hotelController.getRoom);
 

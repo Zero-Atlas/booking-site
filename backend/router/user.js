@@ -6,12 +6,12 @@ const router = express.Router();
 
 router.get('/transaction/:userId',userController.getTransaction)
 
-router.post('/user/booked',userController.postBooked)
+router.post('/booked',userController.postBooked)
 
-router.post('/user/login',userController.postLogin)
+router.post('/login',userController.postLogin)
 
-router.post('/user/signup',userController.postSignup)
+router.post('/signup',userController.postSignup)
 
-router.post('/user',userController.getUser)
+router.post('/',userController.getUser)
 
 module.exports = router;

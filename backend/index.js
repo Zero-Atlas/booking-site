@@ -12,13 +12,18 @@ const searchRouter = require("./router/search");
 const MONGODB_URI = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@movie-site.kpkcv1h.mongodb.net/${process.env.MONGO_DATABASE}`;
 
 const app = express();
-app.use(
-  cors({
-    origin: ['https://booking-site-admin.vercel.app/', 'https://booking-site-silk.vercel.app/'],
-    methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
-    allowedHeaders: '*'
-  })
-);
+// app.use(
+//   cors({
+//     origin: ['https://booking-site-admin.vercel.app/', 'https://booking-site-silk.vercel.app/'],
+//     methods: ["POST", "PUT", "GET", "OPTIONS", "HEAD", "DELETE"],
+//     allowedHeaders: '*'
+//   })
+// );
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://booking-site-admin.vercel.app/, https://booking-site-silk.vercel.app/");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -122,7 +122,7 @@ export async function action({ request }) {
   let response;
   if (sendData.edit === "false") {
     response = await fetch(
-      `${process.env.REACT_APP_SERVER}/admin/${adminId}/room/new`,
+      `${process.env.REACT_APP_SERVER}admin/${adminId}/room/new`,
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -131,7 +131,7 @@ export async function action({ request }) {
     );
   } else {
     response = await fetch(
-      `${process.env.REACT_APP_SERVER}/admin/${adminId}/room/update`,
+      `${process.env.REACT_APP_SERVER}admin/${adminId}/room/update`,
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -155,7 +155,7 @@ export async function loader({ request }) {
   if (edit) {
     const roomId = url.searchParams.get("roomId");
     const response = await fetch(
-      `${process.env.REACT_APP_SERVER}/room/${roomId}`
+      `${process.env.REACT_APP_SERVER}room/${roomId}`
     );
     if (!response.ok) {
       const error = await response.json();

@@ -61,7 +61,7 @@ export async function action({ request }) {
   const sendData = { username: username, password: password };
 
   const response = await fetch(
-    `${process.env.REACT_APP_SERVER}/user/${action}`,
+    `${process.env.REACT_APP_SERVER}user/${action}`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json" },

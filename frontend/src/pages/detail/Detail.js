@@ -43,7 +43,7 @@ export default Detail;
 export async function loader({ params }) {
   const hotelId = params.hotelId;
   const response = await fetch(
-    `${process.env.REACT_APP_SERVER}/hotel/${hotelId}`
+    `${process.env.REACT_APP_SERVER}hotel/${hotelId}`
   );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });
@@ -64,7 +64,7 @@ export async function action({ request, params }) {
     payment: receive.get("payment"),
   };
 
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/user/booked`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}user/booked`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData),

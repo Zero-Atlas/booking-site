@@ -14,7 +14,7 @@ export default function RootLayout() {
 
 export async function loader() {
   const adminId = JSON.parse(localStorage.getItem("loginAdmin"));
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/admin`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}admin`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ adminId: adminId }),

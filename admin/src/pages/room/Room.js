@@ -102,7 +102,7 @@ export default function Room() {
 
 export async function loader() {
   const adminId = JSON.parse(localStorage.getItem("loginAdmin"));
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/admin/${adminId}/room`);
+  const response = await fetch(`${process.env.REACT_APP_SERVER}admin/${adminId}/room`);
   if (!response.ok) {
     const error = await response.json();
     console.log(response.status, error.message);

@@ -56,7 +56,7 @@ export async function action({ request }) {
   const password = formData.get("password");
   const sendData = { username: username, password: password };
 
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/admin/login`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}admin/login`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(sendData),

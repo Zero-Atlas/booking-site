@@ -198,14 +198,14 @@ export async function action({ request }) {
 
   let response;
   if (sendData.edit === "false") {
-    response = await fetch(`${process.env.REACT_APP_SERVER}/admin/${adminId}/hotel/new`, {
+    response = await fetch(`${process.env.REACT_APP_SERVER}admin/${adminId}/hotel/new`, {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(sendData),
     });
   } else {
     response = await fetch(
-      `${process.env.REACT_APP_SERVER}/admin/${adminId}/hotel/update`,
+      `${process.env.REACT_APP_SERVER}admin/${adminId}/hotel/update`,
       {
         method: "post",
         headers: { "Content-Type": "application/json" },
@@ -228,7 +228,7 @@ export async function loader({ request }) {
 
   if (edit) {
     const hotelId = url.searchParams.get("hotelId");
-    const response = await fetch(`${process.env.REACT_APP_SERVER}/hotel/${hotelId}`);
+    const response = await fetch(`${process.env.REACT_APP_SERVER}hotel/${hotelId}`);
     if (!response.ok) {
       const error = await response.json();
       console.log(response.status, error.message);

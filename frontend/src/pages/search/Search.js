@@ -30,7 +30,7 @@ export async function action({ request }) {
     rooms: Number(receive.get("rooms")),
   };
 
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/search`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}search`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(inputData),

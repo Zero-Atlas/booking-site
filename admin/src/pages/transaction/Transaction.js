@@ -116,7 +116,7 @@ export async function loader({ request }) {
   const url = new URL(request.url);
   const page = url.searchParams.get("page") || 1;
   const response = await fetch(
-    `${process.env.REACT_APP_SERVER}/admin/${adminId}/transaction?page=${page}`
+    `${process.env.REACT_APP_SERVER}admin/${adminId}/transaction?page=${page}`
   );
   if (!response.ok) {
     throw json({ message: "fail to fetch", status: 500 });

@@ -16,7 +16,7 @@ export default function RootLayout() {
 
 export async function loader() {
   const userId = JSON.parse(localStorage.getItem("loginUser"));
-  const response = await fetch(`${process.env.REACT_APP_SERVER}/user`, {
+  const response = await fetch(`${process.env.REACT_APP_SERVER}user`, {
     method: "post",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userId: userId }),

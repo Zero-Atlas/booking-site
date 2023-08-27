@@ -7,5 +7,5 @@
 .date-picker {
   z-index: 100 !important;
   overflow: visible;
-  height: auto;
+  height: auto !important;
 }

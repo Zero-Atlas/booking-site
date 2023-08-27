@@ -1,12 +1,13 @@
-import { Link, useRouteLoaderData } from "react-router-dom";
+import { Link, useRouteLoaderData, useNavigate } from "react-router-dom";
 import "./LogoUser.css";
 const LogoUser = function () {
   const loginUser = useRouteLoaderData("root");
+  const navigate = useNavigate();
   return (
     <div className="wp-logo-user">
-      <Link to="/" className="logo">
+      <a to="/" className="logo" onClick={navigate.bind(null,'/')}>
         Booking
-      </Link>
+      </a>
       <div className="user">
         {loginUser && <p>{loginUser.email}</p>}
         {loginUser ? (

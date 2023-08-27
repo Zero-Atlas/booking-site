@@ -21,3 +21,6 @@
   background-color: #efefef;
   text-decoration: none;
 }
+a.logo:hover {
+  cursor: pointer;
+}
